@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
-<% if user_signed_in? %>
-  <%= "You are  logged in as #{current_user.email}" %>
-<% end %>
+
 <p>
   <strong>Title:</strong>
   <%= @link.title %>
@@ -14,11 +12,6 @@
 <p>
   <strong>Notes:</strong>
   <%= @link.notes %>
-</p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @link.user %>
 </p>
 <%= link_to 'Edit', edit_link_path(@link) %> |
 <%= link_to 'Back', links_path %>

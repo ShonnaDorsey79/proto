@@ -1,8 +1,8 @@
 class LinksController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
-    @links = Link.all
-    @user="Shonna Dorsey"
-    @pet="Jax"
+    @link = Link.all
   end
 
   def show
@@ -35,6 +35,12 @@ class LinksController < ApplicationController
   end
 
   def destroy
+    @link = Link.find(params[:id])
+    @link.destroy
+    respond_to do |format|
+      format.html { redirect_to links_url, notice: 'Link was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   def new
